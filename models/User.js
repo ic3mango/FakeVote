@@ -6,4 +6,4 @@ const userSchema = new Schema({
   twitterId: String
 });
 
-mongoose.model('users', userSchema);
+mongoose.model('User', userSchema);

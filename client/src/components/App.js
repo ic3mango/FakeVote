@@ -5,7 +5,9 @@ import * as actions from '../actions';
 
 import Header from './Header';
 import Landing from './Landing';
-import Dashboard from './Dashboard';
+import Polls from './Polls';
+import MyPolls from './MyPolls';
+import PollForm from './NewPoll/PollForm';
 
 class App extends Component {
   componentDidMount() {
@@ -19,7 +21,9 @@ class App extends Component {
           <div className="container">
             <Header />
             <Route exact path="/" component={Landing} />
-            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/polls" component={Polls} />
+            <Route exact path="/mypolls" componeny={MyPolls} />
+            <Route exact path="/newpoll" component={PollForm} />
           </div>
         </BrowserRouter>
       </div>

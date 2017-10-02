@@ -9,6 +9,7 @@ require('dotenv').config({ path: 'variables.env' });
 
 // mongoose models
 require('./models/User');
+require('./models/Poll');
 
 //services e.g. passport
 require('./services/passport');
@@ -37,6 +38,7 @@ app.use(passport.session());
 app.use(bodyParser.json());
 
 require('./routes/authRoutes')(app);
+require('./routes/pollRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
   // Express will serve un production assets to the client
