@@ -17,6 +17,23 @@ module.exports = app => {
     res.send(poll);
   });
 
-  app.get('/api/polls/:id');
-  app.get('/api/polls');
+  app.get('/api/polls/:id', requireLogin, async (req, res) => {
+    const userPolls = await Poll.find({ _user: req.params.id },
+      "title id")
+      .limit(20).sort({ dateCreated: -1 });
+
+    res.send(userPolls);
+  });
+
+  app.get('/api/polls', async (req, res) => {
+    const allPolls = await Poll.find({})
+      .limit(20).sort({ dateCreated: -1 });
+    res.send(allPolls);
+  });
+
+  app.get('/api/poll/:id', async (req, res) => {
+    const poll = await Poll.findById(req.params.id);
+
+    res.send(poll);
+  });
 }

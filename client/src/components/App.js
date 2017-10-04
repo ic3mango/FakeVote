@@ -8,6 +8,7 @@ import Landing from './Landing';
 import Polls from './Polls';
 import MyPolls from './MyPolls';
 import PollForm from './NewPoll/PollForm';
+import Poll from './Poll';
 
 class App extends Component {
   componentDidMount() {
@@ -22,7 +23,8 @@ class App extends Component {
             <Header />
             <Route exact path="/" component={Landing} />
             <Route exact path="/polls" component={Polls} />
-            <Route exact path="/mypolls" componeny={MyPolls} />
+            <Route exact path="/poll/:id" component={Poll} />
+            <Route exact path="/mypolls" component={MyPolls} />
             <Route exact path="/newpoll" component={PollForm} />
           </div>
         </BrowserRouter>

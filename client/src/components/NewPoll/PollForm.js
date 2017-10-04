@@ -1,20 +1,15 @@
 import React from "react";
 import { Field, FieldArray, reduxForm } from "redux-form";
-import axios from 'axios';
 import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 import renderOptions from "./renderOptions";
 import renderTitle from "./renderTitle";
 
-const createSurvey = async (values, history) => {
-  const res = await axios.post("/api/polls/add", values);
 
-  await history.push("/polls/" + res._id);
-  return;
-}
-
-const PollForm = ({ handleSubmit, submitting, reset, pristine, history }) => {
+const PollForm = ({ handleSubmit, submitting, reset, pristine, history, createPoll }) => {
   return (
-    <form onSubmit={handleSubmit(values => createSurvey(values, history))}>
+    <form onSubmit={handleSubmit(values => createPoll(values, history))}>
       <Field
         name="title"
         component={renderTitle}
@@ -51,7 +46,7 @@ const validate = values => {
       errors[key] = "Option cannot be empty";
     }
 
-    if (!values.options || values.options.length < 2) {
+    if (values.options && values.options.length < 2) {
       errors.title = "You need at least 2 options for your poll";
     }
 
@@ -66,4 +61,4 @@ const validate = values => {
 export default reduxForm({
   form: "pollForm",
   validate
-})(withRouter(PollForm));
+})((connect(null, actions)(withRouter(PollForm))));

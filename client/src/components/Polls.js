@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
+import ShowPolls from './ShowPolls'
 
-const Polls = () => {
-  return (
-    <div>
-      <h3>Polls</h3>
-    </div>
-  )
+class AllPolls extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      allPolls: null
+    };
+  }
+
+  componentDidMount() {
+    axios.get(`/api/polls/`)
+      .then(res => this.setState({ allPolls: res.data} ));
+  }
+
+  render() {
+    return (
+      <div>
+        <h2>All Polls</h2>
+        <ShowPolls polls={this.state.allPolls || []} />
+      </div>
+    );
+  }
 }
 
-export default Polls;
+export default AllPolls;

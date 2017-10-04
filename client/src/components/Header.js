@@ -17,7 +17,7 @@ class Header extends Component {
       default:
         return (
           <div>
-            <li key="3"><Link to="/polls">Home</Link></li>
+            <li key="3"><Link to="/polls">All</Link></li>
             <li key="4"><Link to="/mypolls">My Polls</Link></li>
             <li key="5"><Link to="/newpoll">New Poll</Link></li>
             <li key="2"><a href="/api/logout">Logout</a></li>
