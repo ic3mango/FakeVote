@@ -24,10 +24,12 @@ class App extends Component {
           <div>
             <Header />
             <Route exact path="/" component={Landing} />
-            <Route path="/polls" component={Polls} />
-            <Route path="/poll/:id" component={Poll} />
-            <Route path="/mypolls" component={RequireAuth(MyPolls)} />
-            <Route path="/newpoll" component={RequireAuth(PollForm)} />
+            <div className="container">
+              <Route path="/polls" component={Polls} />
+              <Route path="/poll/:id" component={Poll} />
+              <Route path="/mypolls" component={RequireAuth(MyPolls)} />
+              <Route path="/newpoll" component={RequireAuth(PollForm)} />
+            </div>
           </div>
         </BrowserRouter>
       </div>

@@ -41,7 +41,7 @@ require('./routes/authRoutes')(app);
 require('./routes/pollRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
-  // Express will serve un production assets to the client
+  // Express will serve up production assets to the client
   app.use(express.static('client/build'));
 
   // Express will serve up index.html if it doesn't recognize the route
