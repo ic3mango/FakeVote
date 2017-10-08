@@ -10,6 +10,8 @@ import MyPolls from './MyPolls';
 import PollForm from './NewPoll/PollForm';
 import Poll from './Poll';
 
+import RequireAuth from './HOC/RequireAuth';
+
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
@@ -19,13 +21,13 @@ class App extends Component {
     return (
       <div>
         <BrowserRouter>
-          <div className="container">
+          <div>
             <Header />
             <Route exact path="/" component={Landing} />
-            <Route exact path="/polls" component={Polls} />
-            <Route exact path="/poll/:id" component={Poll} />
-            <Route exact path="/mypolls" component={MyPolls} />
-            <Route exact path="/newpoll" component={PollForm} />
+            <Route path="/polls" component={Polls} />
+            <Route path="/poll/:id" component={Poll} />
+            <Route path="/mypolls" component={RequireAuth(MyPolls)} />
+            <Route path="/newpoll" component={RequireAuth(PollForm)} />
           </div>
         </BrowserRouter>
       </div>

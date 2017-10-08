@@ -3,13 +3,19 @@ import { Field, FieldArray, reduxForm } from "redux-form";
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import axios from 'axios';
 import renderOptions from "./renderOptions";
 import renderTitle from "./renderTitle";
 
 
 const PollForm = ({ handleSubmit, submitting, reset, pristine, history, createPoll }) => {
+  createPoll = (values) => {
+    axios.post('/api/polls/add', values)
+      .then(res => history.push(`/mypolls`));
+  }
+
   return (
-    <form onSubmit={handleSubmit(values => createPoll(values, history))}>
+    <form onSubmit={handleSubmit(values => createPoll(values))}>
       <Field
         name="title"
         component={renderTitle}
@@ -58,7 +64,7 @@ const validate = values => {
   return errors;
 };
 
-export default reduxForm({
+export default withRouter(reduxForm({
   form: "pollForm",
   validate
-})((connect(null, actions)(withRouter(PollForm))));
+})((connect(null, actions)(PollForm))));

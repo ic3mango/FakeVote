@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import axios from "axios";
 import ShowPolls from "./ShowPolls";
 
@@ -19,14 +18,14 @@ class MyPolls extends Component {
     return (
       <div>
         <h2>My Polls</h2>
-        <ShowPolls polls={this.state.myPolls || []} />
+        <div>
+          {this.state.myPolls ?
+            <ShowPolls polls={this.state.myPolls || []} />
+            : "Loading..."}
+        </div>
       </div>
     );
   }
 }
 
-function mapStateToProps({ user }) {
-  return { user };
-}
-
-export default connect(mapStateToProps)(MyPolls);
+export default MyPolls;

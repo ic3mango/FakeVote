@@ -20,7 +20,11 @@ class AllPolls extends Component {
     return (
       <div>
         <h2>All Polls</h2>
-        <ShowPolls polls={this.state.allPolls || []} />
+        <div>
+          {this.state.allPolls ?
+            <ShowPolls polls={this.state.allPolls || []} />
+            : "Loading..."}
+        </div>
       </div>
     );
   }

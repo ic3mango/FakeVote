@@ -36,4 +36,19 @@ module.exports = app => {
 
     res.send(poll);
   });
+
+  app.put('/api/poll/:id/vote/:option', async (req, res) => {
+    const poll = await Poll.findById(req.params.id);
+
+    poll.options.forEach((optionObj) => {
+      if (optionObj.name === req.params.option) {
+        optionObj.votes += 1;
+        poll.voters.push(req.ip);
+      }
+    });
+
+    const newPoll = await poll.save();
+
+    res.send(newPoll);
+  });
 }
