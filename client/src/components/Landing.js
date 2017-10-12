@@ -1,5 +1,6 @@
 import React from 'react';
 import { Slider, Slide } from 'react-materialize';
+import AllPolls from './AllPolls';
 
 import backgroundRight from './resources/amazing-sunset-mount-Kilimanjaro.jpg';
 import backgroundCenter from './resources/patagonia_color.jpg';
@@ -27,6 +28,9 @@ const Landing = () => {
       		View results by checking back with us
       	</Slide>
       </Slider>
+      <div className="container">
+        <AllPolls />
+      </div>
     </div>
   );
 }

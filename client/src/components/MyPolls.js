@@ -5,7 +5,7 @@ import ShowPolls from "./ShowPolls";
 class MyPolls extends Component {
   constructor(props) {
     super(props);
-    this.state = { myPolls: null };
+    this.state = { myPolls: [] };
   }
 
   componentDidMount() {
@@ -20,7 +20,7 @@ class MyPolls extends Component {
         <h2>My Polls</h2>
         <div>
           {this.state.myPolls ?
-            <ShowPolls polls={this.state.myPolls || []} />
+            <ShowPolls polls={this.state.myPolls} />
             : "Loading..."}
         </div>
       </div>

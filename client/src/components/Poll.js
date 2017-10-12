@@ -96,7 +96,7 @@ class Poll extends Component {
             haveVoted={this.state.haveVoted}
           />
         </div>
-        <div className="col s6">
+        <div className="col s6" style={{ marginTop: '16px' }}>
           {this.renderPieChart(options)}
         </div>
       </div>

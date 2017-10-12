@@ -7,7 +7,7 @@ class AllPolls extends Component {
     super(props);
 
     this.state = {
-      allPolls: null
+      allPolls: []
     };
   }
 
@@ -22,7 +22,7 @@ class AllPolls extends Component {
         <h2>All Polls</h2>
         <div>
           {this.state.allPolls ?
-            <ShowPolls polls={this.state.allPolls || []} />
+            <ShowPolls polls={this.state.allPolls} />
             : "Loading..."}
         </div>
       </div>

@@ -5,7 +5,7 @@ import * as actions from '../actions';
 
 import Header from './Header';
 import Landing from './Landing';
-import Polls from './Polls';
+import AllPolls from './AllPolls';
 import MyPolls from './MyPolls';
 import PollForm from './NewPoll/PollForm';
 import Poll from './Poll';
@@ -23,13 +23,13 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Header />
-            <Route exact path="/" component={Landing} />
-            <div className="container">
-              <Route path="/polls" component={Polls} />
-              <Route path="/poll/:id" component={Poll} />
-              <Route path="/mypolls" component={RequireAuth(MyPolls)} />
-              <Route path="/newpoll" component={RequireAuth(PollForm)} />
-            </div>
+              <div className="container">
+                <Route exact path="/polls" component={AllPolls} />
+                <Route exact path="/poll/:id" component={Poll} />
+                <Route exact path="/mypolls" component={RequireAuth(MyPolls)} />
+                <Route exact path="/newpoll" component={RequireAuth(PollForm)} />
+              </div>
+              <Route exact path="/" component={Landing} />
           </div>
         </BrowserRouter>
       </div>
