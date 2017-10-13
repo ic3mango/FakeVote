@@ -20,8 +20,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: '/auth/google/callback',
-      proxy: true
+      callbackURL: '/auth/google/callback'
     },
     async (accessToken, refreshToken, profile, done) => {
       const existingUser = await User.findOne({ googleId: profile.id });
@@ -40,8 +39,7 @@ passport.use(
   new TwitterStrategy({
     consumerKey: process.env.TWITTER_CONSUMER_KEY,
     consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-    callbackURL: '/auth/twitter/callback',
-    proxy: true
+    callbackURL: '/auth/twitter/callback'
   },
   async (token, tokenSecret, profile, done) => {
     const existingUser = await User.findOne({ twitterId: profile.id });
