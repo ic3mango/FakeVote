@@ -32,7 +32,7 @@ class Header extends Component {
         <nav className="orange">
           <div className="nav-wrapper container">
             <a href="/" className="brand-logo">
-              <i className="material-icons">assessment</i>FakeVote
+              <i className="material-icons">assessment</i>FateVoke
             </a>
             <ul className="right hide-on-med-and-down">
               {this.renderContent()}
