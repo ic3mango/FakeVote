@@ -1,14 +1,10 @@
-# ReactNodeFCC-boilerplate
-React and Node boilerplate for FCC fullstack projects
+# FateVoke
+Website that allows you to create and share opinion polls with friends!
 
 ## Usage
-Start development server by running
-```bash
-npm run dev
-```
+1. Create poll
+2. Share poll
+3. View results
 
-Create-react-app server will run on localhost:3000 whereas node-express server will run on localhost:5000
-
-## Environment variables
-Replace values in variables.env.sample and rename to variables.env, environment variables will be attached to
-process.env during development
+## Data Visualization
+Doughnut chart created by ReactChartJS2
