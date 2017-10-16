@@ -2,9 +2,9 @@ import React from 'react';
 import { Slider, Slide } from 'react-materialize';
 import AllPolls from './AllPolls';
 
-import backgroundRight from './resources/amazing-sunset-mount-Kilimanjaro.jpg';
-import backgroundCenter from './resources/patagonia_color.jpg';
-import backgroundLeft from './resources/matterhorn_ray.jpg';
+import backgroundRight from '../imgs/mike-kotsch-204198.jpg';
+import backgroundCenter from '../imgs/elena-prokofyeva-17909.jpg';
+import backgroundLeft from '../imgs/sebastian-unrau-31677.jpg';
 
 const Landing = () => {
   return (
@@ -12,8 +12,8 @@ const Landing = () => {
       <Slider>
       	<Slide
       		src={backgroundCenter}
-      		title="FakeVote - where your votes don't count">
-      		Create fake polls to vote on
+      		title="FateVoke - where your votes don't count">
+      		Your daily source of fake polls to vote on
       	</Slide>
       	<Slide
       		src={backgroundLeft}
@@ -25,7 +25,7 @@ const Landing = () => {
       		src={backgroundRight}
       		title="Share poll with your friends"
       		placement="right">
-      		View results by checking back with us
+      		Vote on your favorite topics
       	</Slide>
       </Slider>
       <div className="container">

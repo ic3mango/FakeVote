@@ -5,6 +5,7 @@ import * as actions from '../actions';
 
 import Header from './Header';
 import Landing from './Landing';
+// import Footer from './Footer';
 import AllPolls from './AllPolls';
 import MyPolls from './MyPolls';
 import PollForm from './NewPoll/PollForm';
@@ -30,6 +31,7 @@ class App extends Component {
               <Route exact path="/newpoll" component={RequireAuth(PollForm)} />
             </div>
             <Route exact path="/" component={Landing} />
+            {/* <Footer /> */}
           </div>
         </BrowserRouter>
       </div>

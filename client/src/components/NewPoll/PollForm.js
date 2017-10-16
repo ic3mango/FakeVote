@@ -44,21 +44,46 @@ const PollForm = ({ handleSubmit, submitting, reset, pristine, history, createPo
   );
 };
 
+const hasDuplicates = (array) => {
+  const valuesSoFar = Object.create(null);
+  for (let i = 0; i < array.length; i++) {
+    const value = array[i];
+    if (value in valuesSoFar) {
+      return true;
+    }
+    valuesSoFar[value] = true
+  }
+  return false;
+}
+
 const validate = values => {
   const errors = {};
 
-  for (let key in values) {
-    if (key !== "title" && !values[key]) {
-      errors[key] = "Option cannot be empty";
+  if (!values.options || values.options.length < 2) {
+    errors.title = "You need at least 2 options for your poll";
+  } else {
+    const optionsArrayErrors = []
+    for (let i = 0; i < values.options.length; i++) {
+      if (!values.options[i]) {
+        optionsArrayErrors[i] = "Option field cannot be empty";
+      }
     }
 
-    if (values.options && values.options.length < 2) {
-      errors.title = "You need at least 2 options for your poll";
+    if (values.options.length > 8) {
+      errors.title = "Maximum 8 options allowed";
     }
 
-    if (!values.title) {
-      errors.title = "You must have a title for your poll";
+    if (hasDuplicates(values.options)) {
+      errors.title = "You cannot have duplicate options";
     }
+
+    if(optionsArrayErrors.length) {
+      errors.options = optionsArrayErrors;
+    }
+  }
+
+  if (!values.title) {
+    errors.title = "You must have a title for your poll";
   }
 
   return errors;

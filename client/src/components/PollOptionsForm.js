@@ -19,6 +19,7 @@ export default ({ options, handleChange, handleSubmit, selected, haveVoted }) =>
     <button
       type="submit"
       className={haveVoted ? "btn disabled" : "btn green"}
+      style={{ marginTop: '16px' }}
     >Submit</button>
     <div className="red-text">
       {haveVoted ? "You have already voted in this poll!" : ""}

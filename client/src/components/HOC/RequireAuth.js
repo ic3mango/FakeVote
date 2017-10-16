@@ -5,13 +5,12 @@ export default (WrappedComponent) => {
   class Authentication extends Component {
     componentWillMount() {
       if (!this.props.user) {
-        console.log(this.props.history);
         this.props.history.push('/');
       }
     }
 
     render() {
-      return <WrappedComponent {...this.props} />;
+      return this.props.user && <WrappedComponent {...this.props} />
     }
   }
 

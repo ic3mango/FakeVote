@@ -16,6 +16,7 @@
     "materialize-css": "^0.100.2",
     "react": "^16.0.0",
     "react-chartjs-2": "^2.6.4",
+    "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.0.0",
     "react-materialize": "^1.0.15",
     "react-redux": "^5.0.6",

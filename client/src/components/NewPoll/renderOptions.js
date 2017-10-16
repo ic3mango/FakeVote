@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field } from 'redux-form';
 
-const renderOption = ({ input, label, handleDelete, meta: { error, touched } }) => (
+const _renderOption = ({ input, label, handleDelete, meta: { error, touched } }) => (
   <div className="row">
     <div className="col s12">
       {label}
@@ -27,8 +27,8 @@ export default ({ fields, meta: { error, submitFailed } }) => {
         <li key={index}>
           <Field
             name={option}
-            label={`Option ${index+1}`}
-            component={renderOption}
+            label={`Option ${index+1}: `}
+            component={_renderOption}
             handleDelete={() => fields.remove(index)}
           />
         </li>

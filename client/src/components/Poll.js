@@ -3,6 +3,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import PollOptionsForm from './PollOptionsForm';
 import { Doughnut } from 'react-chartjs-2';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 class Poll extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class Poll extends Component {
     this.state = {
       poll: null,
       selected: null,
+      copied: false,
       haveVoted: false
     }
   }
@@ -23,7 +25,7 @@ class Poll extends Component {
     let ipAddress = await axios.get('/api/ip_address');
     ipAddress = ipAddress.data;
 
-    if (~poll.voters.indexOf(ipAddress)) {
+    if (poll.voters.indexOf(ipAddress) > -1) {
       this.setState({ haveVoted: true })
     }
 
@@ -40,10 +42,12 @@ class Poll extends Component {
       return
     }
 
+    this.setState({ haveVoted: true });
+
     const res = await axios
       .put(`/api/poll/${this.state.poll._id}/vote/${this.state.selected}`);
 
-    this.setState({ poll: res.data, haveVoted: true });
+    this.setState({ poll: res.data });
   }
 
   renderPieChart(options) {
@@ -96,8 +100,15 @@ class Poll extends Component {
             haveVoted={this.state.haveVoted}
           />
         </div>
-        <div className="col s6" style={{ marginTop: '16px' }}>
+        <div className="col s6" style={{ marginTop: '16px', textAlign: 'center' }}>
           {this.renderPieChart(options)}
+          <CopyToClipboard
+            text={window.location.href}
+            style={{ marginTop: '24px' }}
+            onCopy={() => this.setState({ copied: true })}>
+            <button className="btn btn-flat orange white-text">SHARE URL WITH FRIENDS</button>
+          </CopyToClipboard>
+          {this.state.copied ? <p className="red-text">Copied!</p> : ''}
         </div>
       </div>
     );
