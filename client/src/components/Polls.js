@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ShowPolls from './ShowPolls'
+import Loading from './Loading';
 
-class AllPolls extends Component {
+class Polls extends Component {
   constructor(props) {
     super(props);
 
@@ -23,11 +24,11 @@ class AllPolls extends Component {
         <div>
           {this.state.allPolls ?
             <ShowPolls polls={this.state.allPolls} />
-            : "Loading..."}
+            : <Loading />}
         </div>
       </div>
     );
   }
 }
 
-export default AllPolls;
+export default Polls;

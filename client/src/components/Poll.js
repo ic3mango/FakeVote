@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PollOptionsForm from './PollOptionsForm';
 import { Doughnut } from 'react-chartjs-2';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import Loading from './Loading';
 
 class Poll extends Component {
   constructor(props) {
@@ -70,8 +71,8 @@ class Poll extends Component {
 
     if (!totalVotes) {
       return (
-        <div style={{ textAlign : 'center' }} className="blue-text">
-          You are the first voter <span role="img" aria-label="hi">😘</span>
+        <div style={{ textAlign : 'center' }} className="grey-text">
+          You are the first voter <span role="img" aria-label=":P">😘</span>
         </div>
       );
     }
@@ -84,7 +85,7 @@ class Poll extends Component {
     const poll = this.state.poll;
 
     if (!poll) {
-      return <div>Loading...</div>
+      return <Loading />;
     }
 
     const { options } = this.state.poll;
@@ -104,11 +105,11 @@ class Poll extends Component {
           {this.renderPieChart(options)}
           <CopyToClipboard
             text={window.location.href}
-            style={{ marginTop: '24px' }}
+            style={{ margin: '16px 0px' }}
             onCopy={() => this.setState({ copied: true })}>
             <button className="btn btn-flat orange white-text">SHARE URL WITH FRIENDS</button>
           </CopyToClipboard>
-          {this.state.copied ? <p className="red-text">Copied!</p> : ''}
+          {this.state.copied ? <p className="blue-grey-text">Poll URL copied to clipboard!</p> : ''}
         </div>
       </div>
     );

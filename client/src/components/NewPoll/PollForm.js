@@ -11,7 +11,7 @@ import renderTitle from "./renderTitle";
 const PollForm = ({ handleSubmit, submitting, reset, pristine, history, createPoll }) => {
   createPoll = (values) => {
     axios.post('/api/polls/add', values)
-      .then(res => history.push(`/mypolls`));
+      .then(res => history.push(`/userpolls`));
   }
 
   return (

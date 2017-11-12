@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 
 class Header extends Component {
-  renderContent() {
+  renderHeaderLinks() {
     switch (this.props.user) {
       case null:
         return;
@@ -18,7 +18,7 @@ class Header extends Component {
         return (
           <div>
             <li key="3"><Link to="/polls">All</Link></li>
-            <li key="4"><Link to="/mypolls">My Polls</Link></li>
+            <li key="4"><Link to="/userpolls">User Polls</Link></li>
             <li key="5"><Link to="/newpoll">New Poll</Link></li>
             <li key="2"><a href="/api/logout">Logout</a></li>
           </div>
@@ -35,7 +35,7 @@ class Header extends Component {
               <i className="material-icons">assessment</i>FateVoke
             </a>
             <ul className="right hide-on-med-and-down">
-              {this.renderContent()}
+              {this.renderHeaderLinks()}
             </ul>
           </div>
         </nav>

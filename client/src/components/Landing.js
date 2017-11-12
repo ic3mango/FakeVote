@@ -1,10 +1,15 @@
 import React from 'react';
 import { Slider, Slide } from 'react-materialize';
-import AllPolls from './AllPolls';
+import Polls from './Polls';
+import Footer from './Footer';
 
 import backgroundRight from '../imgs/mike-kotsch-204198.jpg';
 import backgroundCenter from '../imgs/elena-prokofyeva-17909.jpg';
 import backgroundLeft from '../imgs/sebastian-unrau-31677.jpg';
+
+const slideTextStyle = {
+  color: "#e50b0b"
+}
 
 const Landing = () => {
   return (
@@ -12,25 +17,29 @@ const Landing = () => {
       <Slider>
       	<Slide
       		src={backgroundCenter}
-      		title="FateVoke - where your votes don't count">
-      		Your daily source of fake polls to vote on
+          style={slideTextStyle}
+      		title="FateVoke - where votes don't count">
+      		Vote without consideration, poll without consequence
       	</Slide>
       	<Slide
       		src={backgroundLeft}
-      		title="Create a poll"
+          style={slideTextStyle}
+      		title="Sign up to create polls"
       		placement="left">
-      		By signing in with either Google or Twitter
+      		Sign up with either Google or Twitter
       	</Slide>
       	<Slide
       		src={backgroundRight}
+          style={slideTextStyle}
       		title="Share poll with your friends"
       		placement="right">
-      		Vote on your favorite topics
+      		Copy URL and share with your friends
       	</Slide>
       </Slider>
       <div className="container">
-        <AllPolls />
+        <Polls />
       </div>
+      <Footer />
     </div>
   );
 }

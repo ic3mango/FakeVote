@@ -4,8 +4,8 @@ import { Field } from 'redux-form';
 const _renderOption = ({ input, label, handleDelete, meta: { error, touched } }) => (
   <div className="row">
     <div className="col s12">
-      {label}
-      <div className="input-field inline">
+      <strong>{label}</strong>
+      <div style={{ width: "60%" }} className="input-field inline">
         <input type="text" {...input} />
       </div>
       <button
