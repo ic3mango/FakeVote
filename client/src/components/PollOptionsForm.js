@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default ({ options, handleChange, handleSubmit, selected, haveVoted }) =>
+export default ({ options, title, handleChange, handleSubmit, selected, haveVoted }) =>
   <form action="" onSubmit={handleSubmit}>
-    <h2>Select your option</h2>
+    <h2>{title}</h2>
     {options.map(option => (
       <p key={option.name}>
         <input

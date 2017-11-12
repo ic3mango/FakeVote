@@ -88,11 +88,12 @@ class Poll extends Component {
       return <Loading />;
     }
 
-    const { options } = this.state.poll;
+    console.log(poll);
     return (
       <div className="row">
         <div className="col s6">
           <PollOptionsForm
+            title={poll.title}
             options={poll.options}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
@@ -102,7 +103,7 @@ class Poll extends Component {
           />
         </div>
         <div className="col s6" style={{ marginTop: '16px', textAlign: 'center' }}>
-          {this.renderPieChart(options)}
+          {this.renderPieChart(poll.options)}
           <CopyToClipboard
             text={window.location.href}
             style={{ margin: '16px 0px' }}
