@@ -7,8 +7,8 @@ Website that allows you to create and share opinion polls with friends!
 3. Non-authenticated users can vote and share poll URL
 
 ## Screenshots
-![Poll Creation](https://imgur.com/axGeYtk)
+![Poll Creation](https://imgur.com/axGeYtk.png)
 
-![Poll Visualization](https://imgur.com/BIKtJax)
+![Poll Visualization](https://imgur.com/BIKtJax.png)
 
-![Poll Loading](https://imgur.com/buMM5CQ)
+![Poll Loading](https://imgur.com/buMM5CQ.png)
