@@ -14,7 +14,7 @@ const _renderOption = ({ input, label, handleDelete, meta: { error, touched } })
         onClick={handleDelete}>
         <i className="material-icons">delete</i>
       </button>
-      {touched && error && <span className="red-text">{error}</span>}
+      {touched && error && <p className="red-text">{error}</p>}
     </div>
   </div>
 );

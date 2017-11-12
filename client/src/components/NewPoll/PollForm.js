@@ -51,7 +51,10 @@ const hasDuplicates = (array) => {
     if (value in valuesSoFar) {
       return true;
     }
-    valuesSoFar[value] = true
+
+    if (value) {
+      valuesSoFar[value] = true
+    }
   }
   return false;
 }
