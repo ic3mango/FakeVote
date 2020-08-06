@@ -1,6 +1,9 @@
 # FateVoke
 Website that allows you to create and share opinion polls with friends!
 
+## Url
+https://fakevote.herokuapp.com/
+
 ## Usage Details
 1. Poll creation allows for maximum of 8 options with no duplciates
 2. Poll visualization created using PieChart component provided by React-Chartjs2
